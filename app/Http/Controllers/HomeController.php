@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SomeEvent;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        event(new SomeEvent(auth()->user()));
         return view('home');
     }
 }
